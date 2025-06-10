@@ -1,0 +1,104 @@
+﻿//@GeneratedCode
+@startuml eVaccinationPass.Logic.Entities.Account.LoginSession
+class LoginSession #whitesmoke {
+    - Nullable<DateTime> _logoutTime
+    - SecureIdentity _identity
+    - Int32 _identityId
+    - Int32 _timeOutInMinutes
+    - String _sessionToken
+    - DateTime _loginTime
+    - DateTime _lastAccess
+    - String _optionalInfo
+    - Byte[] _passwordHash
+    - Byte[] _passwordSalt
+    - String _name
+    - String _email
+    - List<Role> _roles
+    ---
+     + Int32 getIdentityId()
+     + setIdentityId(Int32 value)
+     + Int32 getTimeOutInMinutes()
+     + setTimeOutInMinutes(Int32 value)
+     + String getSessionToken()
+     + setSessionToken(String value)
+     + DateTime getLoginTime()
+     + setLoginTime(DateTime value)
+     + DateTime getLastAccess()
+     + setLastAccess(DateTime value)
+     + Nullable<DateTime> getLogoutTime()
+     + setLogoutTime(Nullable<DateTime> value)
+     + String getOptionalInfo()
+     + setOptionalInfo(String value)
+     + Byte[] getPasswordHash()
+     + setPasswordHash(Byte[] value)
+     + Byte[] getPasswordSalt()
+     + setPasswordSalt(Byte[] value)
+     + String getName()
+     + setName(String value)
+     + String getEmail()
+     + setEmail(String value)
+     + Boolean getIsActive()
+     + Boolean getIsTimeout()
+     + List<Role> getRoles()
+     + SecureIdentity getIdentity()
+     + setIdentity(SecureIdentity value)
+    ---
+    + Int32 get_IdentityId()
+    + Void set_IdentityId(Int32 value)
+    + Int32 get_TimeOutInMinutes()
+    + Void set_TimeOutInMinutes(Int32 value)
+    + String get_SessionToken()
+    + Void set_SessionToken(String value)
+    + DateTime get_LoginTime()
+    + Void set_LoginTime(DateTime value)
+    + DateTime get_LastAccess()
+    + Void set_LastAccess(DateTime value)
+    + Nullable<DateTime> get_LogoutTime()
+    + Void set_LogoutTime(Nullable`1 value)
+    + String get_OptionalInfo()
+    + Void set_OptionalInfo(String value)
+    + Byte[] get_PasswordHash()
+    + Void set_PasswordHash(Byte[] value)
+    + Byte[] get_PasswordSalt()
+    + Void set_PasswordSalt(Byte[] value)
+    + String get_Name()
+    + Void set_Name(String value)
+    + String get_Email()
+    + Void set_Email(String value)
+    + Boolean get_IsActive()
+    + Boolean get_IsTimeout()
+    + List<Role> get_Roles()
+    + SecureIdentity get_Identity()
+    + Void set_Identity(SecureIdentity value)
+    + LoginSession Clone()
+}
++abstract class VersionEntityObject #white {
+}
++abstract class EntityObject #white {
+    - Int32 _id
+    ---
+     + Int32 getId()
+     + setId(Int32 value)
+    ---
+    + Int32 get_Id()
+    + Void set_Id(Int32 value)
+}
++abstract class DbObject #white {
+}
+interface IIdentifiable #lightgrey {
+     + Int32 getId()
+     + setId(Int32 value)
+    ---
+    + Int32 get_Id()
+    + Void set_Id(Int32 value)
+    + Void CopyProperties(IIdentifiable other)
+}
+VersionEntityObject <|-- LoginSession
+EntityObject <|-- VersionEntityObject
+DbObject <|-- EntityObject
+IIdentifiable ()- EntityObject
+LoginSession --> "0..1" SecureIdentity
+LoginSession --> "0..1" Byte[]
+LoginSession --> "0..1" Byte[]
+LoginSession "*" o-- "0..1" Role
+@enduml

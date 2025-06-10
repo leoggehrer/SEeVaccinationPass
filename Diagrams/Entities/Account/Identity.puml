@@ -1,0 +1,63 @@
+﻿//@GeneratedCode
+@startuml eVaccinationPass.Logic.Entities.Account.Identity
+class Identity #whitesmoke {
+    - String _name
+    - String _email
+    - Int32 _timeOutInMinutes
+    - Int32 _accessFailedCount
+    - State _state
+    - List<IdentityXRole> _identityXRoles
+    ---
+     + String getName()
+     + setName(String value)
+     + String getEmail()
+     + setEmail(String value)
+     + Int32 getTimeOutInMinutes()
+     + setTimeOutInMinutes(Int32 value)
+     + Int32 getAccessFailedCount()
+     + setAccessFailedCount(Int32 value)
+     + State getState()
+     + setState(State value)
+     + List<IdentityXRole> getIdentityXRoles()
+     + setIdentityXRoles(List<IdentityXRole> value)
+    ---
+    + String get_Name()
+    + Void set_Name(String value)
+    + String get_Email()
+    + Void set_Email(String value)
+    + Int32 get_TimeOutInMinutes()
+    + Void set_TimeOutInMinutes(Int32 value)
+    + Int32 get_AccessFailedCount()
+    + Void set_AccessFailedCount(Int32 value)
+    + State get_State()
+    + Void set_State(State value)
+    + List<IdentityXRole> get_IdentityXRoles()
+    + Void set_IdentityXRoles(List`1 value)
+}
++abstract class VersionEntityObject #white {
+}
++abstract class EntityObject #white {
+    - Int32 _id
+    ---
+     + Int32 getId()
+     + setId(Int32 value)
+    ---
+    + Int32 get_Id()
+    + Void set_Id(Int32 value)
+}
++abstract class DbObject #white {
+}
+interface IIdentifiable #lightgrey {
+     + Int32 getId()
+     + setId(Int32 value)
+    ---
+    + Int32 get_Id()
+    + Void set_Id(Int32 value)
+    + Void CopyProperties(IIdentifiable other)
+}
+VersionEntityObject <|-- Identity
+EntityObject <|-- VersionEntityObject
+DbObject <|-- EntityObject
+IIdentifiable ()- EntityObject
+Identity "*" o-- "0..1" IdentityXRole
+@enduml

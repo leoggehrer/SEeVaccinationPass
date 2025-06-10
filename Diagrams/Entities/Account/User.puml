@@ -1,0 +1,51 @@
+﻿//@GeneratedCode
+@startuml eVaccinationPass.Logic.Entities.Account.User
++class User #whitesmoke {
+    - Int32 _identityId
+    - String _firstName
+    - String _lastName
+    - Identity _identity
+    ---
+     + Int32 getIdentityId()
+     + setIdentityId(Int32 value)
+     + String getFirstName()
+     + setFirstName(String value)
+     + String getLastName()
+     + setLastName(String value)
+    ---
+    + Int32 get_IdentityId()
+    + Void set_IdentityId(Int32 value)
+    + String get_FirstName()
+    + Void set_FirstName(String value)
+    + String get_LastName()
+    + Void set_LastName(String value)
+    + Identity get_Identity()
+    + Void set_Identity(Identity value)
+}
++abstract class VersionEntityObject #white {
+}
++abstract class EntityObject #white {
+    - Int32 _id
+    ---
+     + Int32 getId()
+     + setId(Int32 value)
+    ---
+    + Int32 get_Id()
+    + Void set_Id(Int32 value)
+}
++abstract class DbObject #white {
+}
+interface IIdentifiable #lightgrey {
+     + Int32 getId()
+     + setId(Int32 value)
+    ---
+    + Int32 get_Id()
+    + Void set_Id(Int32 value)
+    + Void CopyProperties(IIdentifiable other)
+}
+VersionEntityObject <|-- User
+EntityObject <|-- VersionEntityObject
+DbObject <|-- EntityObject
+IIdentifiable ()- EntityObject
+User --> "0..1" Identity
+@enduml

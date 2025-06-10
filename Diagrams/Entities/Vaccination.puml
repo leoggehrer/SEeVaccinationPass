@@ -1,0 +1,64 @@
+﻿//@GeneratedCode
+@startuml eVaccinationPass.Logic.Entities.Vaccination
++class Vaccination #whitesmoke {
+    - DateTime _date
+    - String _vaccine
+    - String _socialNumber
+    - String _firstName
+    - String _lastName
+    - String _doctor
+    - String _note
+    ---
+     + DateTime getDate()
+     + setDate(DateTime value)
+     + String getVaccine()
+     + setVaccine(String value)
+     + String getSocialNumber()
+     + setSocialNumber(String value)
+     + String getFirstName()
+     + setFirstName(String value)
+     + String getLastName()
+     + setLastName(String value)
+     + String getDoctor()
+     + setDoctor(String value)
+     + String getNote()
+     + setNote(String value)
+    ---
+    + DateTime get_Date()
+    + Void set_Date(DateTime value)
+    + String get_Vaccine()
+    + Void set_Vaccine(String value)
+    + String get_SocialNumber()
+    + Void set_SocialNumber(String value)
+    + String get_FirstName()
+    + Void set_FirstName(String value)
+    + String get_LastName()
+    + Void set_LastName(String value)
+    + String get_Doctor()
+    + Void set_Doctor(String value)
+    + String get_Note()
+    + Void set_Note(String value)
+}
++abstract class EntityObject #white {
+    - Int32 _id
+    ---
+     + Int32 getId()
+     + setId(Int32 value)
+    ---
+    + Int32 get_Id()
+    + Void set_Id(Int32 value)
+}
++abstract class DbObject #white {
+}
+interface IIdentifiable #lightgrey {
+     + Int32 getId()
+     + setId(Int32 value)
+    ---
+    + Int32 get_Id()
+    + Void set_Id(Int32 value)
+    + Void CopyProperties(IIdentifiable other)
+}
+EntityObject <|-- Vaccination
+DbObject <|-- EntityObject
+IIdentifiable ()- EntityObject
+@enduml

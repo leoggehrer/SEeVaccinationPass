@@ -1,0 +1,54 @@
+﻿//@GeneratedCode
+@startuml eVaccinationPass.Logic.Entities.Account.IdentityXRole
+class IdentityXRole #whitesmoke {
+    - Int32 _identityId
+    - Int32 _roleId
+    - Identity _identity
+    - Role _role
+    ---
+     + Int32 getIdentityId()
+     + setIdentityId(Int32 value)
+     + Int32 getRoleId()
+     + setRoleId(Int32 value)
+     + Identity getIdentity()
+     + setIdentity(Identity value)
+     + Role getRole()
+     + setRole(Role value)
+    ---
+    + Int32 get_IdentityId()
+    + Void set_IdentityId(Int32 value)
+    + Int32 get_RoleId()
+    + Void set_RoleId(Int32 value)
+    + Identity get_Identity()
+    + Void set_Identity(Identity value)
+    + Role get_Role()
+    + Void set_Role(Role value)
+}
++abstract class VersionEntityObject #white {
+}
++abstract class EntityObject #white {
+    - Int32 _id
+    ---
+     + Int32 getId()
+     + setId(Int32 value)
+    ---
+    + Int32 get_Id()
+    + Void set_Id(Int32 value)
+}
++abstract class DbObject #white {
+}
+interface IIdentifiable #lightgrey {
+     + Int32 getId()
+     + setId(Int32 value)
+    ---
+    + Int32 get_Id()
+    + Void set_Id(Int32 value)
+    + Void CopyProperties(IIdentifiable other)
+}
+VersionEntityObject <|-- IdentityXRole
+EntityObject <|-- VersionEntityObject
+DbObject <|-- EntityObject
+IIdentifiable ()- EntityObject
+IdentityXRole --> "0..1" Identity
+IdentityXRole --> "0..1" Role
+@enduml

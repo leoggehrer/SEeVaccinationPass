@@ -1,0 +1,42 @@
+﻿//@GeneratedCode
+@startuml eVaccinationPass.Logic.Entities.Account.Role
+class Role #whitesmoke {
+    - String _designation
+    - String _description
+    ---
+     + String getDesignation()
+     + setDesignation(String value)
+     + String getDescription()
+     + setDescription(String value)
+    ---
+    + String get_Designation()
+    + Void set_Designation(String value)
+    + String get_Description()
+    + Void set_Description(String value)
+}
++abstract class VersionEntityObject #white {
+}
++abstract class EntityObject #white {
+    - Int32 _id
+    ---
+     + Int32 getId()
+     + setId(Int32 value)
+    ---
+    + Int32 get_Id()
+    + Void set_Id(Int32 value)
+}
++abstract class DbObject #white {
+}
+interface IIdentifiable #lightgrey {
+     + Int32 getId()
+     + setId(Int32 value)
+    ---
+    + Int32 get_Id()
+    + Void set_Id(Int32 value)
+    + Void CopyProperties(IIdentifiable other)
+}
+VersionEntityObject <|-- Role
+EntityObject <|-- VersionEntityObject
+DbObject <|-- EntityObject
+IIdentifiable ()- EntityObject
+@enduml
