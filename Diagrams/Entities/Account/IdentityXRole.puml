@@ -37,6 +37,18 @@ class IdentityXRole #whitesmoke {
 }
 +abstract class DbObject #white {
 }
+interface IIdentityXRole #lightgrey {
+     + Int32 getIdentityId()
+     + setIdentityId(Int32 value)
+     + Int32 getRoleId()
+     + setRoleId(Int32 value)
+    ---
+    + Int32 get_IdentityId()
+    + Void set_IdentityId(Int32 value)
+    + Int32 get_RoleId()
+    + Void set_RoleId(Int32 value)
+    + Void CopyProperties(IIdentityXRole other)
+}
 interface IIdentifiable #lightgrey {
      + Int32 getId()
      + setId(Int32 value)
@@ -48,6 +60,9 @@ interface IIdentifiable #lightgrey {
 VersionEntityObject <|-- IdentityXRole
 EntityObject <|-- VersionEntityObject
 DbObject <|-- EntityObject
+IVersionable <|.. IIdentityXRole
+IIdentifiable <|.. IIdentityXRole
+IIdentityXRole ()- IdentityXRole
 IIdentifiable ()- EntityObject
 IdentityXRole --> "0..1" Identity
 IdentityXRole --> "0..1" Role

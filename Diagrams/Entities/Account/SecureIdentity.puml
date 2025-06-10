@@ -61,6 +61,42 @@ class Identity #whitesmoke {
 }
 +abstract class DbObject #white {
 }
+interface ISecureIdentity #lightgrey {
+     + Byte[] getPasswordHash()
+     + setPasswordHash(Byte[] value)
+     + Byte[] getPasswordSalt()
+     + setPasswordSalt(Byte[] value)
+    ---
+    + Byte[] get_PasswordHash()
+    + Void set_PasswordHash(Byte[] value)
+    + Byte[] get_PasswordSalt()
+    + Void set_PasswordSalt(Byte[] value)
+    + Void CopyProperties(ISecureIdentity other)
+}
+interface IIdentity #lightgrey {
+     + String getName()
+     + setName(String value)
+     + String getEmail()
+     + setEmail(String value)
+     + Int32 getTimeOutInMinutes()
+     + setTimeOutInMinutes(Int32 value)
+     + Int32 getAccessFailedCount()
+     + setAccessFailedCount(Int32 value)
+     + State getState()
+     + setState(State value)
+    ---
+    + String get_Name()
+    + Void set_Name(String value)
+    + String get_Email()
+    + Void set_Email(String value)
+    + Int32 get_TimeOutInMinutes()
+    + Void set_TimeOutInMinutes(Int32 value)
+    + Int32 get_AccessFailedCount()
+    + Void set_AccessFailedCount(Int32 value)
+    + State get_State()
+    + Void set_State(State value)
+    + Void CopyProperties(IIdentity other)
+}
 interface IIdentifiable #lightgrey {
      + Int32 getId()
      + setId(Int32 value)
@@ -73,6 +109,13 @@ Identity <|-- SecureIdentity
 VersionEntityObject <|-- Identity
 EntityObject <|-- VersionEntityObject
 DbObject <|-- EntityObject
+IIdentity <|.. ISecureIdentity
+IVersionable <|.. ISecureIdentity
+IIdentifiable <|.. ISecureIdentity
+IVersionable <|.. IIdentity
+IIdentifiable <|.. IIdentity
+ISecureIdentity ()- SecureIdentity
+IIdentity ()- Identity
 IIdentifiable ()- EntityObject
 SecureIdentity --> "0..1" Byte[]
 SecureIdentity --> "0..1" Byte[]

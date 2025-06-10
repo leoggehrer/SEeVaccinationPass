@@ -3,13 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './pages/dashboard/dashboard/dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './pages/auth/login/login.component';
+import { VaccinationListComponent } from './pages/vaccination-list/vaccination-list.component';
 
 const routes: Routes = [
   // Öffentlicher Login-Bereich
   { path: 'auth/login', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent },
 
   // Geschützter Bereich mit Dashboard und Unterseiten
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'vaccinations', component: VaccinationListComponent, canActivate: [AuthGuard] },
 
   // Redirect von leerem Pfad auf Dashboard
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },

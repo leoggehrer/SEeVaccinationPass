@@ -28,6 +28,7 @@ export class DashboardComponent {
   ];
 
   public authCards: DashboardCard[] = [
+    { title: 'Impfungen', text: 'Impfungen verwalten', type: '/vaccinations', bg: 'bg-success text-white' },
   ];
 
   constructor(

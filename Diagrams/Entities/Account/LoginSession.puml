@@ -85,6 +85,58 @@ class LoginSession #whitesmoke {
 }
 +abstract class DbObject #white {
 }
+interface ILoginSession #lightgrey {
+     + Int32 getIdentityId()
+     + setIdentityId(Int32 value)
+     + Int32 getTimeOutInMinutes()
+     + setTimeOutInMinutes(Int32 value)
+     + String getSessionToken()
+     + setSessionToken(String value)
+     + DateTime getLoginTime()
+     + setLoginTime(DateTime value)
+     + DateTime getLastAccess()
+     + setLastAccess(DateTime value)
+     + Nullable<DateTime> getLogoutTime()
+     + setLogoutTime(Nullable<DateTime> value)
+     + String getOptionalInfo()
+     + setOptionalInfo(String value)
+     + Byte[] getPasswordHash()
+     + setPasswordHash(Byte[] value)
+     + Byte[] getPasswordSalt()
+     + setPasswordSalt(Byte[] value)
+     + String getName()
+     + setName(String value)
+     + String getEmail()
+     + setEmail(String value)
+     + Boolean getIsActive()
+     + Boolean getIsTimeout()
+    ---
+    + Int32 get_IdentityId()
+    + Void set_IdentityId(Int32 value)
+    + Int32 get_TimeOutInMinutes()
+    + Void set_TimeOutInMinutes(Int32 value)
+    + String get_SessionToken()
+    + Void set_SessionToken(String value)
+    + DateTime get_LoginTime()
+    + Void set_LoginTime(DateTime value)
+    + DateTime get_LastAccess()
+    + Void set_LastAccess(DateTime value)
+    + Nullable<DateTime> get_LogoutTime()
+    + Void set_LogoutTime(Nullable`1 value)
+    + String get_OptionalInfo()
+    + Void set_OptionalInfo(String value)
+    + Byte[] get_PasswordHash()
+    + Void set_PasswordHash(Byte[] value)
+    + Byte[] get_PasswordSalt()
+    + Void set_PasswordSalt(Byte[] value)
+    + String get_Name()
+    + Void set_Name(String value)
+    + String get_Email()
+    + Void set_Email(String value)
+    + Boolean get_IsActive()
+    + Boolean get_IsTimeout()
+    + Void CopyProperties(ILoginSession other)
+}
 interface IIdentifiable #lightgrey {
      + Int32 getId()
      + setId(Int32 value)
@@ -96,6 +148,9 @@ interface IIdentifiable #lightgrey {
 VersionEntityObject <|-- LoginSession
 EntityObject <|-- VersionEntityObject
 DbObject <|-- EntityObject
+IVersionable <|.. ILoginSession
+IIdentifiable <|.. ILoginSession
+ILoginSession ()- LoginSession
 IIdentifiable ()- EntityObject
 LoginSession --> "0..1" SecureIdentity
 LoginSession --> "0..1" Byte[]

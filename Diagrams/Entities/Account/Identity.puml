@@ -47,6 +47,30 @@ class Identity #whitesmoke {
 }
 +abstract class DbObject #white {
 }
+interface IIdentity #lightgrey {
+     + String getName()
+     + setName(String value)
+     + String getEmail()
+     + setEmail(String value)
+     + Int32 getTimeOutInMinutes()
+     + setTimeOutInMinutes(Int32 value)
+     + Int32 getAccessFailedCount()
+     + setAccessFailedCount(Int32 value)
+     + State getState()
+     + setState(State value)
+    ---
+    + String get_Name()
+    + Void set_Name(String value)
+    + String get_Email()
+    + Void set_Email(String value)
+    + Int32 get_TimeOutInMinutes()
+    + Void set_TimeOutInMinutes(Int32 value)
+    + Int32 get_AccessFailedCount()
+    + Void set_AccessFailedCount(Int32 value)
+    + State get_State()
+    + Void set_State(State value)
+    + Void CopyProperties(IIdentity other)
+}
 interface IIdentifiable #lightgrey {
      + Int32 getId()
      + setId(Int32 value)
@@ -58,6 +82,9 @@ interface IIdentifiable #lightgrey {
 VersionEntityObject <|-- Identity
 EntityObject <|-- VersionEntityObject
 DbObject <|-- EntityObject
+IVersionable <|.. IIdentity
+IIdentifiable <|.. IIdentity
+IIdentity ()- Identity
 IIdentifiable ()- EntityObject
 Identity "*" o-- "0..1" IdentityXRole
 @enduml

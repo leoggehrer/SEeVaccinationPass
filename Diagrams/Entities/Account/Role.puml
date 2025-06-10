@@ -27,6 +27,18 @@ class Role #whitesmoke {
 }
 +abstract class DbObject #white {
 }
+interface IRole #lightgrey {
+     + String getDesignation()
+     + setDesignation(String value)
+     + String getDescription()
+     + setDescription(String value)
+    ---
+    + String get_Designation()
+    + Void set_Designation(String value)
+    + String get_Description()
+    + Void set_Description(String value)
+    + Void CopyProperties(IRole other)
+}
 interface IIdentifiable #lightgrey {
      + Int32 getId()
      + setId(Int32 value)
@@ -38,5 +50,8 @@ interface IIdentifiable #lightgrey {
 VersionEntityObject <|-- Role
 EntityObject <|-- VersionEntityObject
 DbObject <|-- EntityObject
+IVersionable <|.. IRole
+IIdentifiable <|.. IRole
+IRole ()- Role
 IIdentifiable ()- EntityObject
 @enduml
