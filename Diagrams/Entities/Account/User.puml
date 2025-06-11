@@ -35,22 +35,6 @@
 }
 +abstract class DbObject #white {
 }
-interface IUser #lightgrey {
-     + Int32 getIdentityId()
-     + setIdentityId(Int32 value)
-     + String getFirstName()
-     + setFirstName(String value)
-     + String getLastName()
-     + setLastName(String value)
-    ---
-    + Int32 get_IdentityId()
-    + Void set_IdentityId(Int32 value)
-    + String get_FirstName()
-    + Void set_FirstName(String value)
-    + String get_LastName()
-    + Void set_LastName(String value)
-    + Void CopyProperties(IUser other)
-}
 interface IIdentifiable #lightgrey {
      + Int32 getId()
      + setId(Int32 value)
@@ -62,9 +46,6 @@ interface IIdentifiable #lightgrey {
 VersionEntityObject <|-- User
 EntityObject <|-- VersionEntityObject
 DbObject <|-- EntityObject
-IVersionable <|.. IUser
-IIdentifiable <|.. IUser
-IUser ()- User
 IIdentifiable ()- EntityObject
 User --> "0..1" Identity
 @enduml

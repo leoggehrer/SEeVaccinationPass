@@ -38,8 +38,6 @@
     + Void set_Doctor(String value)
     + String get_Note()
     + Void set_Note(String value)
-    + Void Validate(IContext context, EntityState entityState)
-    - Boolean ChechSocialNumber(String socialNumber)
 }
 +abstract class EntityObject #white {
     - Int32 _id
@@ -52,41 +50,6 @@
 }
 +abstract class DbObject #white {
 }
-interface IVaccination #lightgrey {
-     + DateTime getDate()
-     + setDate(DateTime value)
-     + String getVaccine()
-     + setVaccine(String value)
-     + String getSocialNumber()
-     + setSocialNumber(String value)
-     + String getFirstName()
-     + setFirstName(String value)
-     + String getLastName()
-     + setLastName(String value)
-     + String getDoctor()
-     + setDoctor(String value)
-     + String getNote()
-     + setNote(String value)
-    ---
-    + DateTime get_Date()
-    + Void set_Date(DateTime value)
-    + String get_Vaccine()
-    + Void set_Vaccine(String value)
-    + String get_SocialNumber()
-    + Void set_SocialNumber(String value)
-    + String get_FirstName()
-    + Void set_FirstName(String value)
-    + String get_LastName()
-    + Void set_LastName(String value)
-    + String get_Doctor()
-    + Void set_Doctor(String value)
-    + String get_Note()
-    + Void set_Note(String value)
-    + Void CopyProperties(IVaccination other)
-}
-interface IValidatableEntity #lightgrey {
-    + Void Validate(IContext context, EntityState entityState)
-}
 interface IIdentifiable #lightgrey {
      + Int32 getId()
      + setId(Int32 value)
@@ -97,8 +60,5 @@ interface IIdentifiable #lightgrey {
 }
 EntityObject <|-- Vaccination
 DbObject <|-- EntityObject
-IIdentifiable <|.. IVaccination
-IVaccination ()- Vaccination
-IValidatableEntity ()- Vaccination
 IIdentifiable ()- EntityObject
 @enduml

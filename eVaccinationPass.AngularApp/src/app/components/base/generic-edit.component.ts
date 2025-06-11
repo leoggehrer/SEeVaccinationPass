@@ -11,10 +11,19 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
  */
 @Directive()
 export abstract class GenericEditComponent<T extends IKeyModel> {
+  private _dataItem!: T;
   /**
    * The data item being edited or added.
    */
-  @Input() dataItem!: T;
+  @Input() set dataItem(value: T) {
+    this._dataItem = value;
+    console.log('dataItem wurde gesetzt:', value);
+    this.dataItemChanged(value);
+  }
+
+  public get dataItem(): T {
+    return this._dataItem;
+  }
 
   /**
    * Event emitted when the form is saved.
@@ -53,6 +62,9 @@ export abstract class GenericEditComponent<T extends IKeyModel> {
    */
   public dismiss() {
     this.activeModal.dismiss();
+  }
+
+  protected dataItemChanged(dataItem: T) {
   }
 
   /**

@@ -3,7 +3,7 @@ import { IKeyModel } from '@app-models/i-key-model';
 //@CustomImportBegin
 //@CustomImportEnd
 export interface IVaccination extends IKeyModel {
-  date: Date;
+  date: string;
   vaccine: string;
   socialNumber: string;
   firstName: string;
